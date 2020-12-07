@@ -1,11 +1,14 @@
 package ma.co.eqdom.SimplIS.entities;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 
 @Entity
@@ -25,7 +28,8 @@ public class Tableau {
     @Column(nullable=false)
     private String lib_tableau ;
 
-    
+    @OneToMany(mappedBy="bloc")
+	private Set<Bloc> blocs;
     
     
 	public String getLib_tableau() {
