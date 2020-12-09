@@ -21,6 +21,9 @@ public class Modele {
 	@OneToMany(mappedBy="modele")
 	private Set<Tableau> tableaux;
 	
+	@Column(length=1)
+	private String actif = "O" ; // actif O/N
+	
 	public String getFichier_xsd() {
 		return fichier_xsd;
 	}
@@ -49,6 +52,16 @@ public class Modele {
 
 	public void setLib_modele(String lib_modele) {
 		this.lib_modele = lib_modele;
+	}
+
+	
+	
+	public String getActif() {
+		return actif;
+	}
+
+	public void setActif(String actif) {
+		this.actif = actif;
 	}
 
 	@Override
