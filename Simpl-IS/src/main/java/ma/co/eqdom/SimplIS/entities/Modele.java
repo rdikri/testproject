@@ -24,6 +24,11 @@ public class Modele {
 	@Column(length=1)
 	private String actif = "O" ; // actif O/N
 	
+	
+	@OneToMany(mappedBy = "modele")
+    private Set<ModeleSociete> modelesociete;
+	
+	
 	public String getFichier_xsd() {
 		return fichier_xsd;
 	}
