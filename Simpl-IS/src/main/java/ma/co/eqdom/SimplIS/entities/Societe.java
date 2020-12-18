@@ -58,6 +58,8 @@ public class Societe {
 	@OneToMany(mappedBy = "societe")
     private Set<ModeleSociete> modelesociete;
 	
+	@OneToMany(mappedBy="societe")
+	private Set<TableauSociete> tableauSociete;
 	
 	public String getActif() {
 		return actif;
@@ -206,7 +208,23 @@ public class Societe {
 	public long getId_societe() {
 		return id_societe;
 	}
-	
+
+	public Set<ModeleSociete> getModelesociete() {
+		return modelesociete;
+	}
+
+	public void setModelesociete(Set<ModeleSociete> modelesociete) {
+		this.modelesociete = modelesociete;
+	}
+
+	public Set<TableauSociete> getTableauSociete() {
+		return tableauSociete;
+	}
+
+	public void setTableauSociete(Set<TableauSociete> tableauSociete) {
+		this.tableauSociete = tableauSociete;
+	}
+
     	
 
 }

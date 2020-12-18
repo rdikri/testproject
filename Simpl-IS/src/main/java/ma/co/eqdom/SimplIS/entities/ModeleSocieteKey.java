@@ -23,7 +23,5 @@ public class ModeleSocieteKey implements Serializable {
 	public void setId_societe(long id_societe) {
 		this.id_societe = id_societe;
 	}
-	
-	
 
 }

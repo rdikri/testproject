@@ -23,6 +23,8 @@ public class Bloc {
 	private String lib_bloc ;
 	
 
+
+
 	private int ordre = 0;
 	
 	@Column(length=1)
@@ -56,10 +58,7 @@ public class Bloc {
 
 
 	@ManyToOne
-    @JoinColumns({
-    	  @JoinColumn(name = "id_tableau"),
-    	  @JoinColumn(name = "id_modele")
-    	})
+	@JoinColumn(name="id_tab")
     private Tableau tableau ;
     
     

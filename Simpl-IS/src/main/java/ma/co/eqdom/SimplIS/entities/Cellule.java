@@ -8,8 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+
 
 @Entity
 public class Cellule {
@@ -20,6 +20,8 @@ public class Cellule {
 	
 		
 	private String codeedi ;
+	
+	private String lib_cellule ;
 	
 	@Enumerated(EnumType.STRING)
 	private Data_typeEnum data_type ;
@@ -42,6 +44,7 @@ public class Cellule {
 	private String actif = "O" ; // actif O/N
 	
 
+	
 	public Ligne getLigne() {
 		return ligne;
 	}
@@ -96,5 +99,14 @@ public class Cellule {
 		return id_cellule;
 	}
 
+	public String getLib_cellule() {
+		return lib_cellule;
+	}
+
+	public void setLib_cellule(String lib_cellule) {
+		this.lib_cellule = lib_cellule;
+	}
+	
+	
 	
 }

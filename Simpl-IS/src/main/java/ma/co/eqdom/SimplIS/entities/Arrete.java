@@ -1,12 +1,14 @@
 package ma.co.eqdom.SimplIS.entities;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -24,6 +26,8 @@ public class Arrete {
 	@Temporal(TemporalType.DATE)
 	@Column(nullable=false)
 	private Date dat_fin ;
+	
+
 
 	public Date getDat_debut() {
 		return dat_debut;

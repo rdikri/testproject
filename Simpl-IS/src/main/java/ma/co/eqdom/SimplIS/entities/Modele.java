@@ -28,7 +28,7 @@ public class Modele {
 	@OneToMany(mappedBy = "modele")
     private Set<ModeleSociete> modelesociete;
 	
-	
+
 	public String getFichier_xsd() {
 		return fichier_xsd;
 	}
@@ -73,4 +73,26 @@ public class Modele {
 	public String toString() {
 		return "Modele [id_modele=" + id_modele + ", lib_modele=" + lib_modele + "]";
 	}
+
+	public Set<Tableau> getTableaux() {
+		return tableaux;
+	}
+
+	public void setTableaux(Set<Tableau> tableaux) {
+		this.tableaux = tableaux;
+	}
+
+	public Set<ModeleSociete> getModelesociete() {
+		return modelesociete;
+	}
+
+	public void setModelesociete(Set<ModeleSociete> modelesociete) {
+		this.modelesociete = modelesociete;
+	}
+
+	public Modele() {
+		// TODO Auto-generated constructor stub
+	}
+
+	
 }

@@ -4,25 +4,35 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
+import javax.persistence.Index;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 
 @Entity
-@IdClass(TableauId.class)
+@Table(indexes = { 
+		 @Index(name="indx_tableau_modele" , columnList="id_tableau,id_modele" , unique=true) ,
+		 @Index(name="indx_tableau_actif" , columnList="actif" )
+		})
 public class Tableau {
-	
-   
-	
+		
+
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private long id_tab ;
+	
+	
     @ManyToOne
     @JoinColumn(name="id_modele")
     private Modele modele ;
 	
-	@Id
+	
+    @Column(nullable=false)
 	private String id_tableau ;
 
     @Column(nullable=false)
@@ -31,11 +41,17 @@ public class Tableau {
     @OneToMany(mappedBy="tableau")
 	private Set<Bloc> blocs;
     
+    @OneToMany(mappedBy="tableau")
+	private Set<TableauSociete> tableauSociete;
+    
     
     private int ordre = 0 ;
     
 	@Column(length=1)
 	private String actif = "O" ; // actif O/N
+	
+	
+	
     
 	public String getActif() {
 		return actif;
@@ -85,15 +101,18 @@ public class Tableau {
 		this.blocs = blocs;
 	}
 
-	public Tableau(Modele modele, String id_tableau, String lib_tableau , int ordre) {
-		super();
-		this.modele = modele;
-		this.id_tableau = id_tableau;
-		this.lib_tableau = lib_tableau;
-		this.ordre = ordre ;
+	public Set<TableauSociete> getTableauSociete() {
+		return tableauSociete;
 	}
-	
-	
+
+	public void setTableauSociete(Set<TableauSociete> tableauSociete) {
+		this.tableauSociete = tableauSociete;
+	}
+
+	public long getId_tab() {
+		return id_tab;
+	}
+
 	
 }
 

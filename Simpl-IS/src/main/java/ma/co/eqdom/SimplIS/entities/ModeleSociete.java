@@ -5,17 +5,16 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
+import javax.persistence.Table;
 
 @Entity
 public class ModeleSociete {
 
-	
-	@EmbeddedId
+	@EmbeddedId	
 	private ModeleSocieteKey id ;
 	
-	
 	@ManyToOne
-    @MapsId("id_modele")
+	@MapsId("id_modele")
     @JoinColumn(name = "id_modele")
     private Modele modele;
 
@@ -34,13 +33,7 @@ public class ModeleSociete {
 		this.actif = actif;
 	}
 
-	public ModeleSocieteKey getId() {
-		return id;
-	}
-
-	public void setId(ModeleSocieteKey id) {
-		this.id = id;
-	}
+	
 
 	public Modele getModele() {
 		return modele;

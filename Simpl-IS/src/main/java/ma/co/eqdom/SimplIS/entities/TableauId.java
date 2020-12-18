@@ -12,6 +12,8 @@ public class TableauId implements Serializable  {
 
 	
 
+	
+	
 	public Modele getModele() {
 		return modele;
 	}
